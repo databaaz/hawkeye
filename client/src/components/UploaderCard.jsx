@@ -18,8 +18,8 @@ class UploaderCard extends React.Component{
         const {classes} = this.props;
         return(
             <Grid container>
-                    <Grid item xs={4}></Grid>
-                    <Grid item xs={4}>
+                    <Grid item xs={1} md={4}></Grid>
+                    <Grid item xs={10} md={4}>
                     <Card className={classes.card} elevation={3} >
                         
                         {this.props.imgURL && 
@@ -55,7 +55,7 @@ class UploaderCard extends React.Component{
                         </CardContent>
                     </Card>
                     </Grid>
-                    <Grid item xs={4}></Grid>
+                    <Grid item xs={1} md={4}></Grid>
                 </Grid>
                 
         );

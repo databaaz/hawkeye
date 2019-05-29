@@ -19,8 +19,8 @@ class InferenceCard extends React.Component{
         const {classes} = this.props;
         return(
             <Grid container>
-                    <Grid item xs={2}></Grid>
-                    <Grid item xs={8}>
+                    <Grid item xs={1} md={2}></Grid>
+                    <Grid item xs={10} md={8}>
                         <Card elevation={3}>
                             <CardHeader
                                 title="Inferences"
@@ -101,7 +101,7 @@ class InferenceCard extends React.Component{
                             </CardContent>
                         </Card>
                     </Grid>
-                    <Grid item xs={2}></Grid>
+                    <Grid item xs={1} md={4}></Grid>
                 </Grid>
                 
         )};

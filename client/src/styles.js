@@ -11,7 +11,9 @@ const style = {
     },
     titleHeader:{
         marginBottom: 50,
-        textAlign: "center"
+        textAlign: "center",
+        marginLeft: 10,
+        marginRight: 10,
     },
     title:{
         marginBottom: 15
