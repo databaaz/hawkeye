@@ -1,5 +1,5 @@
 # HawkEye - Identify Almost Anything !
-This project was created as a take-home assignment for my next job at soulskill.com
+This project was created as a take-home assignment for a job interview.
 
 ## Summary
 - The back-end is served on **Nodejs Express** server, and front-end is designed in **Reactjs**.
