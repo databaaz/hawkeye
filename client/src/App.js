@@ -108,7 +108,7 @@ class App extends React.Component {
         })
         let formData = new FormData();
         formData.append('img', img_file);
-        fetch(process.env.REACT_API_URL+"/inference", {
+        fetch(process.env.REACT_APP_API+"/inference", {
             method: "POST",
             body: formData,
           })
