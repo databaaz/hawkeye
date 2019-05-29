@@ -108,7 +108,7 @@ class App extends React.Component {
         })
         let formData = new FormData();
         formData.append('img', img_file);
-        fetch("https://52.66.209.249:5000/inference", {
+        fetch(process.env.REACT_API_URL+"/inference", {
             method: "POST",
             body: formData,
           })
