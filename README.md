@@ -1,5 +1,5 @@
 # HawkEye - Identify Almost Anything !
-This project was created as a take-home assignment for my next job at soulskill.in
+This project was created as a take-home assignment for my next job at soulskill.com
 
 - The back-end is served on Nodejs Express server, and front-end is designed in Reactjs.
 - We are using Tensorflowjs for object detections in the back-end.
