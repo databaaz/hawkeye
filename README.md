@@ -6,11 +6,11 @@ This project was created as a take-home assignment for my next job at soulskill.
 - Ideally, Tensorflowjs is best suitable to make detections in browser, and that's what I wanted to do here, but the requirement wanted me to setup a node server, so model predictions are being done on the back-end server
 - The model being used is MobileNet, trained on COCO dataset - a dataset of 90 different kinds of common objects.
 - Back-end can be found in server directory, while front-end code can be found in client directory.
-- We will have to separately start both client and server.
+- We will have to separately start both the client and the server.
 
 ## Instructions set things up (locally)
 
-Clone this repo to your local machine.
+Clone this repo to your local machine.  
 After the repo is cloned on your machine, enter the project directory:  
 `cd hawkeye`
 
@@ -23,14 +23,14 @@ If you do not have them already, install them using apt-get commands:
 ## Setting up Back-end
 
  Enter the server directory:  
-`cd server`
+`cd server`  
 Now run the following commands:
 ### `npm install`
 This will install all the dependencies mentioned in package.json file, that are required for your server.
 
 ### `sudo PORT=80 npm start`
-This runs the start script in your package.json file, and serves the back-end on port 80 of your machine.
-Once you see a message `model loaded !`, you are good to go.
+This runs the start script specified in your package.json file, and serves the back-end on port 80 of your machine.  
+Once you see the message `model loaded !`, you are good to go.
 
 
 ## Setting up Front-end
@@ -43,11 +43,11 @@ This will install all the dependencies mentioned in package.json file, that are 
 
 ### `REACT_APP_API='http://127.0.0.1' npm start`
 This will fire up your React App on a development server.  
-Here we are providing an environment variable called `REACT_APP_API`, that stores the address where your back-end is hosted, which in this case happens to be your local host i.e 127.0.0.1 .
+Here we are providing an environment variable called `REACT_APP_API`, that stores the address where your back-end is hosted, which in this case happens to be your local host i.e 127.0.0.1 .  
 This option is particularly useful when your app is deployed in production and your front-end and back-end are served on different machines.  
 
 ## Demo
 You can test the app without actually building and running it.  
-Find it [here](https://hawkeye.databaaz.me)
+You can play around [here](https://hawkeye.databaaz.me)
 
 
