@@ -108,7 +108,7 @@ class App extends React.Component {
         })
         let formData = new FormData();
         formData.append('img', img_file);
-        fetch("http://127.0.0.1:5000/inference", {
+        fetch("http://52.66.209.249:5000/inference", {
             method: "POST",
             body: formData,
           })
