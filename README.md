@@ -1,68 +1,53 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# HawkEye - Identify Almost Anything !
+This project was created as a take-home assignment for my next job at soulskill.in
 
-## Available Scripts
+- The back-end is served on Nodejs Express server, and front-end is designed in Reactjs.
+- We are using Tensorflowjs for object detections in the back-end.
+- Ideally, Tensorflowjs is best suitable to make detections in browser, and that's what I wanted to do here, but the requirement wanted me to setup a node server, so model predictions are being done on the back-end server
+- The model being used is MobileNet, trained on COCO dataset - a dataset of 90 different kinds of common objects.
+- Back-end can be found in server directory, while front-end code can be found in client directory.
+- We will have to separately start both the client and the server.
 
-In the project directory, you can run:
+## Instructions set things up (locally)
 
-### `npm start`
+Clone this repo to your local machine.  
+After the repo is cloned on your machine, enter the project directory:  
+`cd hawkeye`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Prerequisites:
+You need to have `nodejs` and `npm` installed on your machines for app to run, both for back-end and client-side app.
+If you do not have them already, install them using apt-get commands:  
+`sudo apt-get install nodejs`  
+`sudo apt-get install npm`  
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Setting up Back-end
 
-### `npm test`
+ Enter the server directory:  
+`cd server`  
+Now run the following commands:
+### `npm install`
+This will install all the dependencies mentioned in package.json file, that are required for your server.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `sudo PORT=80 npm start`
+This runs the start script specified in your package.json file, and serves the back-end on port 80 of your machine.  
+Once you see the message `model loaded !`, you are good to go.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Setting up Front-end
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+ Enter the client directory:  
+`cd client`
+Now run the following commands:
+### `npm install`
+This will install all the dependencies mentioned in package.json file, that are required for React App.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `REACT_APP_API='http://127.0.0.1' npm start`
+This will fire up your React App on a development server.  
+Here we are providing an environment variable called `REACT_APP_API`, that stores the address where your back-end is hosted, which in this case happens to be your local host i.e 127.0.0.1 .  
+This option is particularly useful when your app is deployed in production and your front-end and back-end are served on different machines.  
 
-### `npm run eject`
+## Demo
+You can test the app without actually building and running it.  
+You can play around [here](https://hawkeye.databaaz.me)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
