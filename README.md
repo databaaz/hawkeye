@@ -11,40 +11,40 @@ This project was created as a take-home assignment for a job interview.
 - Back-end code can be found in server directory, while front-end code can be found in client directory.
 - We will have to separately start both the client and the server.
 
-## Instructions set things up (locally)
+## Instructions for setting things up (locally)
 
 Clone this repo to your local machine.  
 After the repo is cloned on your machine, enter the project directory:  
 `cd hawkeye`
 
-## Prerequisites:
+### Prerequisites:
 You need to have `nodejs` and `npm` installed on your machines for app to run, both for back-end and client-side app.
 If you do not have them already, install them using apt-get commands:  
 `sudo apt-get install nodejs`  
 `sudo apt-get install npm`  
 
-## Setting up Back-end
+### Setting up Back-end
 
  Enter the server directory:  
 `cd server`  
 Now run the following commands:
-### `npm install`
+#### `npm install`
 This will install all the dependencies mentioned in package.json file, that are required for your server.
 
-### `sudo PORT=80 npm start`
+#### `sudo PORT=80 npm start`
 This runs the start script specified in your package.json file, and serves the back-end on port 80 of your machine.  
 Once you see the message `model loaded !`, you are good to go.
 
 
-## Setting up Front-end
+### Setting up Front-end
 
  Enter the client directory:  
 `cd client`
 Now run the following commands:
-### `npm install`
+#### `npm install`
 This will install all the dependencies mentioned in package.json file, that are required for React App.
 
-### `REACT_APP_API='http://127.0.0.1' npm start`
+#### `REACT_APP_API='http://127.0.0.1' npm start`
 This will fire up your React App on a development server.  
 Here we are providing an environment variable called `REACT_APP_API`, that stores the address where your back-end is hosted, which in this case happens to be your local host i.e 127.0.0.1 .  
 This option is particularly useful when your app is deployed in production and your front-end and back-end are served on different machines.  
