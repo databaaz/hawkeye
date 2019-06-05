@@ -37,6 +37,7 @@ class App extends React.Component {
             ftype: "",
             fsize: "",
             objects_detected: {},
+            objects_color: {},
             loading: false,
             snackMessage: '',
             snackOpen: false,
@@ -83,6 +84,11 @@ class App extends React.Component {
             snackMessage: ""
         })
     }
+    populateColors = ()=>{
+        let colors = ["#f4e48f", "#e47127", "#7c3256", "#011efe",
+        "#fe0000", "#ffe200", "#ffe200", "#CFFF00", "#ff00ff", "#00FFFF"]
+        return colors.slice(0);
+    }
     handleSubmit = ()=>{
         if (this.state.fetched){
             this.setState({
@@ -106,8 +112,10 @@ class App extends React.Component {
         this.setState({
           loading: true  
         })
+        let colors = this.populateColors();
         let formData = new FormData();
         formData.append('img', img_file);
+        
         fetch(process.env.REACT_APP_API +"/inference", {
             method: "POST",
             body: formData,
@@ -126,6 +134,7 @@ class App extends React.Component {
                 return
             }
             let obj_counter = {};
+            let obj_colors = {};
             let predictions = response.pred;
             
             let img = new Image();
@@ -140,20 +149,26 @@ class App extends React.Component {
                 ctx.textBaseline = "top";
                 ctx.drawImage(img, 0, 0);
                 predictions.forEach(prediction=>{
-                    if (obj_counter[prediction.class])
+                    if (obj_counter[prediction.class]){
                         obj_counter[prediction.class] += 1;
-                    else
+                    }
+                    else{
                         obj_counter[prediction.class] = 1
+                        obj_colors[prediction.class] = colors.pop()
+                        if (colors.length==0){
+                            colors = this.populateColors();
+                        }
+                    }
                     let x = prediction.bbox[0]
                     let y = prediction.bbox[1]
                     let width = prediction.bbox[2]
                     let height = prediction.bbox[3]
                     
-                    ctx.strokeStyle = "#00FFFF";
+                    ctx.strokeStyle = obj_colors[prediction.class];
                     ctx.lineWidth = 4;
                     ctx.strokeRect(x,y,width,height);
 
-                    ctx.fillStyle = "#00FFFF";
+                    ctx.fillStyle = obj_colors[prediction.class];
                     const textWidth = ctx.measureText(prediction.class).width;
                     const textHeight = parseInt(font, 10); // base 10
                     ctx.fillRect(x, y, textWidth + 4, textHeight + 4);
@@ -174,6 +189,7 @@ class App extends React.Component {
                     fsize: response.fsize,
                     img_res: response.fres,
                     objects_detected:obj_counter,
+                    objects_color: obj_colors,
                     fetched: true,
                 })   
             };
@@ -201,6 +217,7 @@ class App extends React.Component {
         this.setState({
             imageFile: null,
             imgURL: "",
+            loading: false
         });   
         console.log(this.state)
     }
@@ -230,6 +247,7 @@ class App extends React.Component {
                 ftype = {this.state.ftype}
                 fsize = {this.state.fsize}
                 objects_detected = {this.state.objects_detected}
+                objects_color = {this.state.objects_color}
                 />}
 
                 <Grid container>

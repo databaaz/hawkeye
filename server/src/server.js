@@ -47,21 +47,22 @@ app.post('/inference', upload.single('img'), async (req, res)=>{
     let img_b64 = req.file.buffer;
     let img = new Image();
     img.src = img_b64;
-    const canvas = createCanvas(img.width, img.height);
-    const ctx = canvas.getContext('2d');
-    ctx.drawImage(img, 0, 0);
     
-    //prediction
-    const predictions = await loaded_model.detect(canvas);
+        const canvas = createCanvas(img.width, img.height);
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+        
+        //prediction
+        const predictions = await loaded_model.detect(canvas);
 
-    let resolution = img.width + 'x' + img.height;
-    res.send({
-        pred: predictions,
-        ftype: ftype,
-        fsize: size,
-        fres: resolution,
-        status: 'success'
-    });
+        let resolution = img.width + 'x' + img.height;
+        res.send({
+            pred: predictions,
+            ftype: ftype,
+            fsize: size,
+            fres: resolution,
+            status: 'success'
+        });
     
     
 })

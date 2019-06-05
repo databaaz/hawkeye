@@ -86,8 +86,11 @@ class InferenceCard extends React.Component{
                                                         return(
                                                         <Chip label={x} 
                                                         className={classes.chips}
-                                                        avatar={<Avatar>{this.props.objects_detected[x]}</Avatar>}
-                                                        color="primary"/>
+                                                        avatar={
+                                                            <Avatar style={{backgroundColor:this.props.objects_color[x],
+                                                                    color: "#000"}}>
+                                                                {this.props.objects_detected[x]}</Avatar>}
+                                                        style={{backgroundColor:this.props.objects_color[x]}}/>
                                                         );
                                                         })}
                                             </CardContent>
