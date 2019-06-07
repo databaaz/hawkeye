@@ -2,8 +2,8 @@
 This project was created as a take-home assignment for a job interview.
 
 ## Summary
-- The back-end is served on **Nodejs Express** server, and front-end is designed in **Reactjs**.
-- We are using **Tensorflowjs** for object detections in the back-end.
+- The back-end is served on **Node.js Express** server, and front-end is designed in **Reactjs**.
+- We are using **TensorFlowj.s** for object detections in the back-end.
 - Ideally, Tensorflowjs is best suitable to make detections in browser, and that's what I wanted to do here, but the requirement wanted me to setup a node server, so model predictions are being done on the back-end server
 - The model being used is **MobileNet**, trained on **COCO dataset** - a dataset of 90 different kinds of common objects.
 - Back-end receives image file as Form Data, and returns predicted bounding boxes co-ordinates along with its class to front-end client.
