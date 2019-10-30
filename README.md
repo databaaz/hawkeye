@@ -1,6 +1,6 @@
 # HawkEye - Identify Almost Anything !  
 
-!()[3es01k.gif]  
+<img src = "demo.gif" width="70%"  alt="Demo"/>
 
 This project was created as a take-home assignment for a job interview.
 
